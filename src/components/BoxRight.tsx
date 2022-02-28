@@ -1,17 +1,17 @@
 import styles from "./BoxRight.module.css";
-import { list } from "../modules/types";
+import { plan } from "../modules/types";
 import React, { useState } from "react";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
 type BoxRightProps = {
-  selectedList: list;
-  addTaskToAList: (selectedListName: string, taskDescription: string) => void;
+  selectedPlan: plan;
+  addTaskToAPlan: (selectedPlanName: string, taskDescription: string) => void;
 };
 // --------------------------------------------------------------
 // --RFC---------------------------------------------------------
 // --------------------------------------------------------------
-function BoxRight({ selectedList, addTaskToAList }: BoxRightProps) {
+function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
@@ -24,15 +24,15 @@ function BoxRight({ selectedList, addTaskToAList }: BoxRightProps) {
   }
   function onClick_handleSubmit(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, selectedListName: string, taskDescription: string): void {
     event.preventDefault();
-    addTaskToAList(selectedListName, taskDescription);
+    addTaskToAPlan(selectedListName, taskDescription);
     setInput("");
   }
   // --------------------------------------------------------------
   // --RENDERS-----------------------------------------------------
   // --------------------------------------------------------------
-  function renderSelectedListTasks(selectedList: list): JSX.Element[] | null {
-    if (selectedList) {
-      return selectedList?.tasks.map((task, index) => <div key={index}>{task.description}</div>);
+  function renderSelectedPlanTasks(selectedPlan: plan): JSX.Element[] | null {
+    if (selectedPlan) {
+      return selectedPlan?.tasks.map((task, index) => <div key={index}>{task.description}</div>);
     } else {
       return null;
     }
@@ -42,12 +42,12 @@ function BoxRight({ selectedList, addTaskToAList }: BoxRightProps) {
   // --------------------------------------------------------------
   return (
     <div className={styles.BoxRight}>
-      <div>{selectedList?.name}</div>
-      {renderSelectedListTasks(selectedList)}
-      {selectedList && (
+      <div>{selectedPlan?.name}</div>
+      {renderSelectedPlanTasks(selectedPlan)}
+      {selectedPlan && (
         <form>
           <input value={input} onChange={(event) => onChange_handleInput(event)}></input>
-          <button type="submit" onClick={(event) => onClick_handleSubmit(event, selectedList.name, input)}>
+          <button type="submit" onClick={(event) => onClick_handleSubmit(event, selectedPlan.name, input)}>
             add
           </button>
         </form>

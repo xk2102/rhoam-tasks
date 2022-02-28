@@ -1,28 +1,28 @@
 import styles from "./BoxLeft.module.css";
-import { list } from "../modules/types";
+import { plan } from "../modules/types";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
 type BoxLeftProps = {
-  lists: list[];
-  selectedList: list;
-  setSelectedList: React.Dispatch<React.SetStateAction<list | null>>;
+  plans: plan[];
+  selectedPlan: plan;
+  setSelectedPlan: React.Dispatch<React.SetStateAction<plan | null>>;
 };
 // --------------------------------------------------------------
 // --RFC---------------------------------------------------------
 // --------------------------------------------------------------
-function BoxLeft({ lists, selectedList, setSelectedList }: BoxLeftProps) {
+function BoxLeft({ plans, selectedPlan, setSelectedPlan }: BoxLeftProps) {
   // --------------------------------------------------------------
   // --RENDERS-----------------------------------------------------
   // --------------------------------------------------------------
   // --------------------------------------------------------------
   // --HANDLERS----------------------------------------------------
   // --------------------------------------------------------------
-  function onClick_handleSelectedList(list: list) {
-    if (selectedList === list) {
-      setSelectedList(null);
+  function onClick_handleSelectedList(plan: plan) {
+    if (selectedPlan === plan) {
+      setSelectedPlan(null);
     } else {
-      setSelectedList(list);
+      setSelectedPlan(plan);
     }
   }
   // --------------------------------------------------------------
@@ -30,14 +30,35 @@ function BoxLeft({ lists, selectedList, setSelectedList }: BoxLeftProps) {
   // --------------------------------------------------------------
   return (
     <div className={styles.BoxLeft}>
-      <div>🌎 LOCAL</div>
-      {lists.map((list, index) => (
-        <div className={styles.list} key={index} onClick={() => onClick_handleSelectedList(list)}>
-          <div className={styles.listCircle} style={{ backgroundColor: list?.color }}></div>
-          <div>{list?.name}</div>
+      <div className={styles.category}>
+        <div className={styles.image}>🌎</div>
+        <div className={styles.label}>LOCAL</div>
+      </div>
+      {plans.map((plan, index) => (
+        <div className={styles.plan} key={index} onClick={() => onClick_handleSelectedList(plan)}>
+          <div className={styles.image}>🌎</div>
+          <div className={styles.label}>{plan?.name}</div>
         </div>
       ))}
-      <div>🌌 ONLINE</div>
+
+      <div className={styles.category}>
+        <div className={styles.image}>🌎</div>
+        <div className={styles.label}>CLOUD</div>
+      </div>
+      <div className={styles.plan}>
+        <div className={styles.image}>🌎</div>
+        <div className={styles.label}>plan</div>
+      </div>
+      <div className={styles.plan}>
+        <div className={styles.image}>🌎</div>
+        <div className={styles.label}>another plan</div>
+      </div>
+
+      <div className={styles.addPlanButton}>
+        <div className={styles.image}>➕</div>
+        <div className={styles.label}>Add Plan</div>
+        <div className={styles.config}>⋮</div>
+      </div>
     </div>
   );
 }

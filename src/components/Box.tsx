@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Box.module.css";
 import BoxLeft from "./BoxLeft";
 import BoxRight from "./BoxRight";
-import { list } from "../modules/types";
+import { plan } from "../modules/types";
 import { uid } from "uid";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
@@ -15,50 +15,60 @@ function Box() {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
-  const [lists, setLists] = useState<list[]>([
+  const [plans, setPlans] = useState<plan[]>([
     {
-      name: "listA",
-      color: "#32a856",
+      name: "planA",
+      color: "",
       tasks: [
         { id: "1", description: "do this..", due: "datetime" },
         { id: "2", description: "do that..", due: "datetime" },
       ],
     },
     {
-      name: "listB",
-      color: "#328ba8",
+      name: "planB",
+      color: "",
+      tasks: [
+        { id: "3", description: "do that..", due: "datetime" },
+        { id: "4", description: "do this..", due: "datetime" },
+      ],
+    },
+    {
+      name: "planC",
+      color: "",
       tasks: [
         { id: "3", description: "do that..", due: "datetime" },
         { id: "4", description: "do this..", due: "datetime" },
       ],
     },
   ]);
-  const [selectedList, setSelectedList] = useState<list>(null);
+
+  // ffaa00 fa1955 a3ab38
+  const [selectedPlan, setSelectedPlan] = useState<plan>(null);
   // --------------------------------------------------------------
   // --USEEFFECT---------------------------------------------------
   // --------------------------------------------------------------
   useEffect(() => {
-    selectedList === null ? console.log("selectedList is empty") : console.log(`selectedList: ${selectedList.name}`);
-  }, [selectedList]);
+    selectedPlan === null ? console.log("selectedPlan is empty") : console.log(`selectedPlan: ${selectedPlan.name}`);
+  }, [selectedPlan]);
   // --------------------------------------------------------------
   // --FUNCTIONS---------------------------------------------------
   // --------------------------------------------------------------
   function addTaskToAList(selectedListName: string, taskDescription: string): void {
-    let _lists: list[] = lists;
-    _lists.forEach((obj) => {
+    let _plans: plan[] = plans;
+    _plans.forEach((obj) => {
       if (obj?.name === selectedListName) {
         obj.tasks.push({ id: uid(), description: taskDescription, due: "datetime" });
       }
     });
-    setLists([..._lists]);
+    setPlans([..._plans]);
   }
   // --------------------------------------------------------------
   // --RETURN------------------------------------------------------
   // --------------------------------------------------------------
   return (
     <div className={styles.Box}>
-      <BoxLeft lists={lists} selectedList={selectedList} setSelectedList={setSelectedList} />
-      <BoxRight selectedList={selectedList} addTaskToAList={addTaskToAList} />
+      <BoxLeft plans={plans} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
+      <BoxRight selectedPlan={selectedPlan} addTaskToAPlan={addTaskToAList} />
     </div>
   );
 }

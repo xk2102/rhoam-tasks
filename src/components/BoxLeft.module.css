@@ -113,7 +113,7 @@
   text-align: left;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 18px;
   /* OTHER */
   cursor: pointer;
 }
@@ -140,6 +140,10 @@
   /* border: 2px solid; */
   /* DISPLAY */
   flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
 }
 
 .addPlanButton:hover {

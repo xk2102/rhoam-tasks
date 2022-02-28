@@ -1,4 +1,154 @@
 .BoxRight {
+  /* DISPLAY */
   flex: 3;
+  /* MARGIN, PADDING */
   padding: 20px;
+}
+
+.plan {
+  /* DISPLAY */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* BORDER */
+  /* border: 2px solid; */
+}
+/* ------------------ */
+/* ----HEADER------------- */
+/* ------------------ */
+.plan > .planHeader {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  width: 100%;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* FONTS */
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.plan > .planHeader > .image {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 0.5;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.plan > .planHeader > .label {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 4;
+}
+.plan > .planHeader > .config {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 1;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+/* ------------------ */
+/* ----CONTENT------------- */
+/* ------------------ */
+
+.plan > .planContent {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  width: 100%;
+}
+
+/* ------------------ */
+/* ----FOOTER------------- */
+/* ------------------ */
+
+.plan > .planFooter {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  width: 100%;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.plan > .planFooter > .image {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 0.5;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* OTHER */
+  cursor: pointer;
+}
+.plan > .planFooter > .image:hover {
+}
+
+.plan > .planFooter > .image > button {
+  /* BORDER */
+  border: 1px;
+  /* COLORS */
+  background-color: #0b0b11;
+  color: inherit;
+  /* OTHER */
+  cursor: pointer;
+}
+
+.plan > .planFooter > .input {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 4;
+  /* DISPLAY */
+  display: flex;
+}
+.plan > .planFooter > .input > input {
+  /* SIZE */
+  flex: 1;
+  /* COLORS */
+  background-color: #0b0b11;
+  color: inherit;
+  /* FONTS */
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  /* BORDER */
+  border: 2px solid #15151b;
+  border-radius: 5px;
+  /* MARGIN, PADDING */
+  padding: 10px;
+}
+.plan > .planFooter > .input > input:focus {
+  /* BORDER */
+  outline: 2px solid #15151b;
+}
+.plan > .planFooter > .config {
+  /* BORDER */
+  /* border: 2px solid; */
+  /* SIZE */
+  flex: 1;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

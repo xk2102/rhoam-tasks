@@ -42,15 +42,29 @@ function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
   // --------------------------------------------------------------
   return (
     <div className={styles.BoxRight}>
-      <div>{selectedPlan?.name}</div>
-      {renderSelectedPlanTasks(selectedPlan)}
       {selectedPlan && (
-        <form>
-          <input value={input} onChange={(event) => onChange_handleInput(event)}></input>
-          <button type="submit" onClick={(event) => onClick_handleSubmit(event, selectedPlan.name, input)}>
-            add
-          </button>
-        </form>
+        <>
+          <div className={styles.plan}>
+            <div className={styles.planHeader}>
+              <div className={styles.image}>🌎</div>
+              <div className={styles.label}>{selectedPlan.name}</div>
+              <div className={styles.config}>⋮</div>
+            </div>
+            <div className={styles.planContent}>content</div>
+            {/* <div className={styles.planFooter}> */}
+            <form className={styles.planFooter}>
+              <div className={styles.image}>
+                <button type="submit" onClick={(event) => onClick_handleSubmit(event, selectedPlan.name, input)}>
+                  ➕
+                </button>
+              </div>
+              <div className={styles.input}>
+                <input value={input} onChange={(event) => onChange_handleInput(event)}></input>
+              </div>
+            </form>
+            {/* </div> */}
+          </div>
+        </>
       )}
     </div>
   );

@@ -30,11 +30,14 @@ function BoxLeft({ lists, selectedList, setSelectedList }: BoxLeftProps) {
   // --------------------------------------------------------------
   return (
     <div className={styles.BoxLeft}>
+      <div>🌎 LOCAL</div>
       {lists.map((list, index) => (
-        <div key={index} onClick={() => onClick_handleSelectedList(list)}>
-          {list?.name}
+        <div className={styles.list} key={index} onClick={() => onClick_handleSelectedList(list)}>
+          <div className={styles.listCircle} style={{ backgroundColor: list?.color }}></div>
+          <div>{list?.name}</div>
         </div>
       ))}
+      <div>🌌 ONLINE</div>
     </div>
   );
 }

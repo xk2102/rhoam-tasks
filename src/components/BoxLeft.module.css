@@ -10,14 +10,38 @@
   --grey800: #424242;
   --grey850: #323232;
   --grey900: #212121;
+  --grey925: #202020;
   --grey950: #111111;
+  --grey1000: #010101;
   --saekiblack: #080808;
   --saekiyellow: #f3e600;
 }
 
 .BoxLeft {
-  border: 2px solid;
-  border-radius: 5px;
-
+  border-right: 2px solid var(--grey1000);
   flex: 1;
+  padding: 5px;
+}
+
+.list {
+  /* border: 2px solid; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.list:hover {
+  background-color: var(--grey900);
+}
+
+.list > .listCircle {
+  width: 15px;
+  height: 15px;
+  /* border: 2px solid; */
+  border-radius: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 }

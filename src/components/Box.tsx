@@ -18,6 +18,7 @@ function Box() {
   const [lists, setLists] = useState<list[]>([
     {
       name: "listA",
+      color: "#32a856",
       tasks: [
         { id: "1", description: "do this..", due: "datetime" },
         { id: "2", description: "do that..", due: "datetime" },
@@ -25,6 +26,7 @@ function Box() {
     },
     {
       name: "listB",
+      color: "#328ba8",
       tasks: [
         { id: "3", description: "do that..", due: "datetime" },
         { id: "4", description: "do this..", due: "datetime" },

@@ -1,6 +1,9 @@
 import styles from "./BoxRight.module.css";
 import { plan } from "../modules/types";
 import React, { useState } from "react";
+import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
+import { BsPlusLg } from "react-icons/bs";
+import { GoKebabVertical } from "react-icons/go";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
@@ -44,25 +47,40 @@ function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
     <div className={styles.BoxRight}>
       {selectedPlan && (
         <>
+          {/* PLAN */}
           <div className={styles.plan}>
+            {/* HEADER */}
             <div className={styles.planHeader}>
               <div className={styles.image}>🌎</div>
               <div className={styles.label}>{selectedPlan.name}</div>
-              <div className={styles.config}>⋮</div>
+              <div className={styles.config}>
+                <GoKebabVertical />
+              </div>
             </div>
-            <div className={styles.planContent}>content</div>
-            {/* <div className={styles.planFooter}> */}
+            {/* CONTENT */}
+            <div className={styles.planContent}>
+              {selectedPlan.tasks.length > 0 &&
+                selectedPlan.tasks.map((task, index) => (
+                  <div className={styles.task} key={index}>
+                    <div className={styles.image}>
+                      <MdOutlineCheckBoxOutlineBlank />
+                      {/* <MdOutlineCheckBox /> */}
+                    </div>
+                    <div className={styles.description}>{task.description}</div>
+                  </div>
+                ))}
+            </div>
+            {/* FOOTER */}
             <form className={styles.planFooter}>
               <div className={styles.image}>
                 <button type="submit" onClick={(event) => onClick_handleSubmit(event, selectedPlan.name, input)}>
-                  ➕
+                  <BsPlusLg />
                 </button>
               </div>
               <div className={styles.input}>
                 <input value={input} onChange={(event) => onChange_handleInput(event)}></input>
               </div>
             </form>
-            {/* </div> */}
           </div>
         </>
       )}

@@ -17,15 +17,19 @@ function Box() {
   // --------------------------------------------------------------
   const [plans, setPlans] = useState<plan[]>([
     {
-      name: "planA",
+      name: "local planA",
       color: "",
       tasks: [
         { id: "1", description: "do this..", due: "datetime" },
         { id: "2", description: "do that..", due: "datetime" },
+        { id: "3", description: "do this..", due: "datetime" },
+        { id: "4", description: "do that..", due: "datetime" },
+        { id: "5", description: "do this..", due: "datetime" },
+        { id: "6", description: "do that..", due: "datetime" },
       ],
     },
     {
-      name: "planB",
+      name: "local planB",
       color: "",
       tasks: [
         { id: "3", description: "do that..", due: "datetime" },
@@ -33,7 +37,7 @@ function Box() {
       ],
     },
     {
-      name: "planC",
+      name: "local planC",
       color: "",
       tasks: [
         { id: "3", description: "do that..", due: "datetime" },

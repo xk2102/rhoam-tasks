@@ -70,6 +70,36 @@
   /* border: 2px solid; */
   /* SIZE */
   width: 100%;
+  /* MARGIN, PADDING */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.plan > .planContent > .task {
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* MARGIN, PADDING */
+  padding: 5px;
+}
+.plan > .planContent > .task > .image {
+  /* SIZE */
+  flex: 0.5;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* FONTS */
+  font-size: 18px;
+}
+.plan > .planContent > .task > .description {
+  /* SIZE */
+  flex: 4;
+  /* FONTS */
+  font-size: 18px;
 }
 
 /* ------------------ */
@@ -109,6 +139,8 @@
   /* COLORS */
   background-color: #0b0b11;
   color: inherit;
+  /* FONTS */
+  font-size: 18px;
   /* OTHER */
   cursor: pointer;
 }

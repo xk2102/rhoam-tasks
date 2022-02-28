@@ -1,5 +1,7 @@
 import styles from "./BoxLeft.module.css";
 import { plan } from "../modules/types";
+import { BsPlusLg } from "react-icons/bs";
+import { GoKebabVertical } from "react-icons/go";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
@@ -55,9 +57,13 @@ function BoxLeft({ plans, selectedPlan, setSelectedPlan }: BoxLeftProps) {
       </div>
 
       <div className={styles.addPlanButton}>
-        <div className={styles.image}>➕</div>
+        <div className={styles.image}>
+          <BsPlusLg />
+        </div>
         <div className={styles.label}>Add Plan</div>
-        <div className={styles.config}>⋮</div>
+        <div className={styles.config}>
+          <GoKebabVertical />
+        </div>
       </div>
     </div>
   );

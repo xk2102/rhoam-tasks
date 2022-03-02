@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { Global } from "../contexts/Global";
 import styles from "./Box.module.css";
 import BoxLeft from "./BoxLeft";
 import BoxRight from "./BoxRight";
@@ -15,6 +16,8 @@ function Box() {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
+  const _Global = useContext(Global);
+  console.log(_Global?.varA);
   const [plans, setPlans] = useState<plan[]>([
     {
       name: "local planA",

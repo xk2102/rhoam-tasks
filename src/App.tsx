@@ -1,10 +1,13 @@
 import "./App.css";
 import Box from "./components/Box";
+import { GlobalProvider } from "./contexts/Global";
 
 function App() {
   return (
     <div className="App">
-      <Box />
+      <GlobalProvider>
+        <Box />
+      </GlobalProvider>
     </div>
   );
 }

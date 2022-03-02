@@ -11,9 +11,17 @@ type BoxRightProps = {
   selectedPlan: plan;
   addTaskToAPlan: (selectedPlanName: string, taskDescription: string) => void;
 };
+type PlanProps = {
+  selectedPlan: plan;
+};
 // --------------------------------------------------------------
 // --RFC---------------------------------------------------------
 // --------------------------------------------------------------
+
+function Plan({ selectedPlan }: PlanProps) {
+  return <div className={styles.plan}></div>;
+}
+
 function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
@@ -47,6 +55,7 @@ function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
     <div className={styles.BoxRight}>
       {selectedPlan && (
         <>
+          <Plan selectedPlan={selectedPlan} />
           {/* PLAN */}
           <div className={styles.plan}>
             {/* HEADER */}

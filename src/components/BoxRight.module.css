@@ -5,6 +5,18 @@
   padding: 20px;
 }
 
+.BoxRightEmpty {
+  /* DISPLAY */
+  flex: 3;
+  /* MARGIN, PADDING */
+  padding: 20px;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .plan {
   /* DISPLAY */
   display: flex;

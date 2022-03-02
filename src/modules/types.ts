@@ -4,4 +4,4 @@ export type plan = {
   color: string;
   id: string;
   tasks: task[];
-} | null;
+};

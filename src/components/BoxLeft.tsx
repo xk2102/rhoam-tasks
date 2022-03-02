@@ -2,29 +2,22 @@ import styles from "./BoxLeft.module.css";
 import { plan } from "../modules/types";
 import { BsPlusLg } from "react-icons/bs";
 import { GoKebabVertical } from "react-icons/go";
-// --------------------------------------------------------------
-// --TYPES-------------------------------------------------------
-// --------------------------------------------------------------
-type BoxLeftProps = {
-  plans: plan[];
-  selectedPlan: plan;
-  setSelectedPlan: React.Dispatch<React.SetStateAction<plan | null>>;
-};
-// --------------------------------------------------------------
-// --RFC---------------------------------------------------------
-// --------------------------------------------------------------
-function BoxLeft({ plans, selectedPlan, setSelectedPlan }: BoxLeftProps) {
+import { useContext } from "react";
+import { Global } from "../contexts/Global";
+
+function BoxLeft() {
   // --------------------------------------------------------------
-  // --RENDERS-----------------------------------------------------
+  // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
+  const _Global = useContext(Global);
   // --------------------------------------------------------------
   // --HANDLERS----------------------------------------------------
   // --------------------------------------------------------------
   function onClick_handleSelectedList(plan: plan) {
-    if (selectedPlan === plan) {
-      setSelectedPlan(null);
+    if (_Global!.selectedPlan === plan) {
+      _Global!.setSelectedPlan(null);
     } else {
-      setSelectedPlan(plan);
+      _Global!.setSelectedPlan(plan);
     }
   }
   // --------------------------------------------------------------
@@ -36,7 +29,7 @@ function BoxLeft({ plans, selectedPlan, setSelectedPlan }: BoxLeftProps) {
         <div className={styles.image}>🌎</div>
         <div className={styles.label}>LOCAL</div>
       </div>
-      {plans.map((plan, index) => (
+      {_Global?.plans.map((plan, index) => (
         <div className={styles.plan} key={index} onClick={() => onClick_handleSelectedList(plan)}>
           <div className={styles.image}>🌎</div>
           <div className={styles.label}>{plan?.name}</div>

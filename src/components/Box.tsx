@@ -17,34 +17,37 @@ function Box() {
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
   const _Global = useContext(Global);
-  console.log(_Global?.varA);
+  // sconsole.log(_Global?.varA);
   const [plans, setPlans] = useState<plan[]>([
     {
       name: "local planA",
+      id: "g1f23cgf12",
       color: "",
       tasks: [
-        { id: "1", description: "do this..", due: "datetime" },
-        { id: "2", description: "do that..", due: "datetime" },
-        { id: "3", description: "do this..", due: "datetime" },
-        { id: "4", description: "do that..", due: "datetime" },
-        { id: "5", description: "do this..", due: "datetime" },
-        { id: "6", description: "do that..", due: "datetime" },
+        { id: "3k4j5", description: "do this..", due: "datetime", completed: false },
+        { id: "lk2j34", description: "do that..", due: "datetime", completed: true },
+        { id: "k324", description: "do this..", due: "datetime", completed: false },
+        { id: "98v7cbiud", description: "do that..", due: "datetime", completed: true },
+        { id: "lksfhd78", description: "do this..", due: "datetime", completed: false },
+        { id: "fdoipg7", description: "do that..", due: "datetime", completed: false },
       ],
     },
     {
       name: "local planB",
+      id: "uyh12g3uy12g",
       color: "",
       tasks: [
-        { id: "3", description: "do that..", due: "datetime" },
-        { id: "4", description: "do this..", due: "datetime" },
+        { id: "kjh4i7", description: "do that..", due: "datetime", completed: false },
+        { id: "df8og0", description: "do this..", due: "datetime", completed: false },
       ],
     },
     {
       name: "local planC",
+      id: "mn123bnm12b",
       color: "",
       tasks: [
-        { id: "3", description: "do that..", due: "datetime" },
-        { id: "4", description: "do this..", due: "datetime" },
+        { id: "kj32h4k", description: "do that..", due: "datetime", completed: false },
+        { id: "ljk234h", description: "do this..", due: "datetime", completed: false },
       ],
     },
   ]);
@@ -60,11 +63,24 @@ function Box() {
   // --------------------------------------------------------------
   // --FUNCTIONS---------------------------------------------------
   // --------------------------------------------------------------
-  function addTaskToAList(selectedListName: string, taskDescription: string): void {
+  function addTaskToAPlan(selectedListName: string, taskDescription: string): void {
     let _plans: plan[] = plans;
     _plans.forEach((obj) => {
       if (obj?.name === selectedListName) {
-        obj.tasks.push({ id: uid(), description: taskDescription, due: "datetime" });
+        obj.tasks.push({ id: uid(), description: taskDescription, due: "datetime", completed: false });
+      }
+    });
+    setPlans([..._plans]);
+  }
+  function toggleTaskCompleted(planId: string, taskId: string): void {
+    let _plans: plan[] = plans;
+    _plans.forEach((obj) => {
+      if (obj?.id === planId) {
+        obj.tasks.forEach((task, index) => {
+          if (task.id === taskId) {
+            obj.tasks[index].completed = !obj.tasks[index].completed;
+          }
+        });
       }
     });
     setPlans([..._plans]);
@@ -75,7 +91,7 @@ function Box() {
   return (
     <div className={styles.Box}>
       <BoxLeft plans={plans} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
-      <BoxRight selectedPlan={selectedPlan} addTaskToAPlan={addTaskToAList} />
+      <BoxRight selectedPlan={selectedPlan} addTaskToAPlan={addTaskToAPlan} toggleTaskCompleted={toggleTaskCompleted} />
     </div>
   );
 }

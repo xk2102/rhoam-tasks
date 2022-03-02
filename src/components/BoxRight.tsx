@@ -10,6 +10,7 @@ import { GoKebabVertical } from "react-icons/go";
 type BoxRightProps = {
   selectedPlan: plan;
   addTaskToAPlan: (selectedPlanName: string, taskDescription: string) => void;
+  toggleTaskCompleted: (planId: string, taskId: string) => void;
 };
 type PlanProps = {
   selectedPlan: plan;
@@ -22,7 +23,7 @@ function Plan({ selectedPlan }: PlanProps) {
   return <div className={styles.plan}></div>;
 }
 
-function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
+function BoxRight({ selectedPlan, addTaskToAPlan, toggleTaskCompleted }: BoxRightProps) {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
@@ -71,9 +72,8 @@ function BoxRight({ selectedPlan, addTaskToAPlan }: BoxRightProps) {
               {selectedPlan.tasks.length > 0 &&
                 selectedPlan.tasks.map((task, index) => (
                   <div className={styles.task} key={index}>
-                    <div className={styles.image}>
-                      <MdOutlineCheckBoxOutlineBlank />
-                      {/* <MdOutlineCheckBox /> */}
+                    <div className={styles.image} onClick={() => toggleTaskCompleted(selectedPlan.id, task.id)}>
+                      {task.completed ? <MdOutlineCheckBox /> : <MdOutlineCheckBoxOutlineBlank />}
                     </div>
                     <div className={styles.description}>{task.description}</div>
                   </div>

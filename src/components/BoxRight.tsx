@@ -28,6 +28,7 @@ function BoxRight({ selectedPlan, addTaskToAPlan, toggleTaskCompleted }: BoxRigh
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
   const [input, setInput] = useState("");
+  const [showConfigBox, setShowConfigBox] = useState(false);
   // --------------------------------------------------------------
   // --HANDLERS----------------------------------------------------
   // --------------------------------------------------------------
@@ -36,8 +37,10 @@ function BoxRight({ selectedPlan, addTaskToAPlan, toggleTaskCompleted }: BoxRigh
   }
   function onClick_handleSubmit(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, selectedListName: string, taskDescription: string): void {
     event.preventDefault();
-    addTaskToAPlan(selectedListName, taskDescription);
-    setInput("");
+    if (input !== "") {
+      addTaskToAPlan(selectedListName, taskDescription);
+      setInput("");
+    }
   }
   // --------------------------------------------------------------
   // --RENDERS-----------------------------------------------------
@@ -64,7 +67,10 @@ function BoxRight({ selectedPlan, addTaskToAPlan, toggleTaskCompleted }: BoxRigh
               <div className={styles.image}>🌎</div>
               <div className={styles.label}>{selectedPlan.name}</div>
               <div className={styles.config}>
-                <GoKebabVertical />
+                <div className={showConfigBox ? `${styles.reactIconContainer} ${styles.selected}` : `${styles.reactIconContainer}`} onClick={() => setShowConfigBox(!showConfigBox)}>
+                  <GoKebabVertical />
+                </div>
+                {showConfigBox && <div className={`animate ${styles.configBox}`}></div>}
               </div>
             </div>
             {/* CONTENT */}

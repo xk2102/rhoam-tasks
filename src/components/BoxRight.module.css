@@ -93,13 +93,13 @@
   /* border: 2px solid; */
   border-radius: 5px;
   /* SIZE */
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   /* POSITION */
   position: absolute;
   z-index: 1;
-  top: 0px;
-  left: -150px;
+  top: 50px;
+  /* left: -150px; */
   /* COLORS */
   background-color: #1d2836;
 }

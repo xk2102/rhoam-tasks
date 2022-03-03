@@ -37,10 +37,10 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
   // ---------------------------------------------
   // --FUNCTIONS----------------------------------
   // ---------------------------------------------
-  function addTaskToAPlan(selectedListName: string, taskDescription: string): void {
+  function addTaskToAPlan(selectedPlanId: string, taskDescription: string): void {
     let _plans: plan[] = plans;
     _plans.forEach((obj) => {
-      if (obj.name === selectedListName) {
+      if (obj.id === selectedPlanId) {
         obj.tasks.push({ id: uid(), description: taskDescription, due: "datetime", completed: false });
       }
     });

@@ -43,7 +43,7 @@ export default function AddPlan() {
           {/* </form> */}
           <div className={styles.actions}>
             <button onClick={() => onClick_handleReset()}>RESET</button>
-            <button onClick={() => onClick_handleAdd(planName, selectedColor)}>ADD</button>
+            <button onClick={() => planName !== "" && onClick_handleAdd(planName, selectedColor)}>ADD</button>
           </div>
         </div>
       )}

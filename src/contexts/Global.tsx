@@ -13,6 +13,8 @@ type GlobalType = {
   addTaskToAPlan: (selectedPlanId: string, taskDescription: string) => void;
   toggleTaskCompleted: (planId: string, taskId: string) => void;
   addPlan: (planName: string, planColor: string) => void;
+  changePlanColor: (planId: string, planNewColor: string) => void;
+  changePlanName: (planId: string, planNewName: string) => void;
 };
 
 export const Global = createContext<GlobalType | null>(null);
@@ -25,7 +27,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     {
       name: "Daily Household Chores",
       id: "g1f23cgf12",
-      color: "",
+      color: "#f9c440",
       tasks: [
         { id: "3k4j5", description: "Put away belongings.", due: "datetime", completed: false },
         { id: "lk2j34", description: "Do the laundry.", due: "datetime", completed: true },
@@ -70,6 +72,24 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     });
     setPlans([..._plans]);
   }
+  function changePlanColor(planId: string, planNewColor: string): void {
+    let _plans: plan[] = plans;
+    _plans.forEach((obj) => {
+      if (obj.id === planId) {
+        obj.color = planNewColor;
+      }
+    });
+    setPlans([..._plans]);
+  }
+  function changePlanName(planId: string, planNewName: string): void {
+    let _plans: plan[] = plans;
+    _plans.forEach((obj) => {
+      if (obj.id === planId) {
+        obj.name = planNewName;
+      }
+    });
+    setPlans([..._plans]);
+  }
 
-  return <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted, addPlan }}>{children}</Global.Provider>;
+  return <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted, addPlan, changePlanColor, changePlanName }}>{children}</Global.Provider>;
 };

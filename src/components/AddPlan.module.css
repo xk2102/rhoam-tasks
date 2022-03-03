@@ -23,6 +23,10 @@
   justify-content: space-between;
   /* SIZE */
   width: 100%;
+  /* OTHER */
+  cursor: pointer;
+  /* MARGIN, PADDING */
+  margin-bottom: 10px;
 }
 
 .addPlan > .header > .image {
@@ -63,6 +67,8 @@
   /* align-items: center; */
   /* SIZE */
   width: 100%;
+  /* MARGIN, PADDING */
+  margin-bottom: 10px;
 }
 
 .addPlan > .content > .colors {
@@ -75,7 +81,7 @@
   justify-content: flex-start;
   align-items: center;
   /* MARGIN, PADDING */
-  padding: 20px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 
@@ -88,22 +94,17 @@
   border-radius: 10px;
   /* MARGIN, PADDING */
   margin-right: 2px;
+  /* OTHER */
+  cursor: pointer;
 }
 .addPlan > .content > .colors > .color.selected {
   /* BORDER */
   border: 2px solid;
 }
 
-.addPlan > .content > form {
-  /* DISPLAY */
-  display: flex;
-  /* MARGIN, PADDING */
-  padding: 10px;
-}
-
-.addPlan > .content > form > input {
+.addPlan > .content > input {
   /* SIZE */
-  width: 100%;
+  /* width: 100%; */
   /* COLORS */
   background-color: #0b0b11;
   color: inherit;
@@ -116,6 +117,7 @@
   border-radius: 5px;
   /* MARGIN, PADDING */
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .addPlan > .content > .actions {
@@ -125,7 +127,7 @@
   justify-content: center;
   align-items: center;
   /* MARGIN, PADDING */
-  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .addPlan > .content > .actions > button {
@@ -144,9 +146,15 @@
   font-family: inherit;
   font-weight: 600;
   font-size: 16px;
+  /* OTHER */
+  cursor: pointer;
 }
 
 .addPlan > .content > .actions > button:hover {
   /* COLORS */
   background-color: #28374b;
+}
+.addPlan > .content > .actions > button:active {
+  /* COLORS */
+  background-color: #2c3d53;
 }

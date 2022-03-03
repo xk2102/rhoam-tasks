@@ -12,6 +12,7 @@ type GlobalType = {
   setSelectedPlan: React.Dispatch<React.SetStateAction<plan | null>>;
   addTaskToAPlan: (selectedPlanId: string, taskDescription: string) => void;
   toggleTaskCompleted: (planId: string, taskId: string) => void;
+  addPlan: (planName: string, planColor: string) => void;
 };
 
 export const Global = createContext<GlobalType | null>(null);
@@ -46,6 +47,16 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     });
     setPlans([..._plans]);
   }
+  function addPlan(planName: string, planColor: string): void {
+    let _plans: plan[] = plans;
+    _plans.push({
+      name: planName,
+      id: uid(),
+      color: planColor,
+      tasks: [],
+    });
+    setPlans([..._plans]);
+  }
   function toggleTaskCompleted(planId: string, taskId: string): void {
     let _plans: plan[] = plans;
     _plans.forEach((obj) => {
@@ -60,5 +71,5 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     setPlans([..._plans]);
   }
 
-  return <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted }}>{children}</Global.Provider>;
+  return <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted, addPlan }}>{children}</Global.Provider>;
 };

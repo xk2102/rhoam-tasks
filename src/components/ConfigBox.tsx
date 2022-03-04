@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Global } from "../contexts/Global";
 import styles from "./Plan.module.css";
 import { plan } from "../modules/types";
+import Color from "./Color";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
@@ -26,11 +27,7 @@ export default function ConfigBox({ selectedPlan }: ConfigBoxProps) {
     <div className={`animate ${styles.configBox}`}>
       <div className={styles.colors}>
         {COLORS.map((color, index) => (
-          <div
-            key={index}
-            className={color === selectedPlan.color ? `${styles.color} ${styles.selected}` : `${styles.color}`}
-            style={{ backgroundColor: color }}
-            onClick={() => _Global!.changePlanColor(selectedPlan.id, color)}></div>
+          <Color key={index} selectedPlan={selectedPlan} color={color} />
         ))}
       </div>
       <span id={styles.newPlanName}>New name: </span>

@@ -41,7 +41,9 @@ function Plan({ selectedPlan }: PlanProps) {
     <div className={styles.plan}>
       {/* HEADER */}
       <div className={styles.planHeader}>
-        <div className={styles.image}>🌎</div>
+        <div className={styles.image}>
+          <div className={styles.color} style={{ backgroundColor: selectedPlan.color }}></div>
+        </div>
         <div className={styles.label}>{selectedPlan.name}</div>
         <div className={styles.config}>
           <div className={showConfigBox ? `${styles.reactIconContainer} ${styles.selected}` : `${styles.reactIconContainer}`} onClick={() => setShowConfigBox(!showConfigBox)}>

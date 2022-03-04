@@ -29,9 +29,11 @@ function BoxLeft() {
           <div className={styles.image}>🌎</div>
           <div className={styles.label}>LOCAL</div>
         </div>
-        {_Global?.plans.map((plan, index) => (
+        {_Global!.plans.map((plan, index) => (
           <div className={styles.plan} key={index} onClick={() => onClick_handleSelectedList(plan)}>
-            <div className={styles.image}>🌎</div>
+            <div className={styles.image}>
+              <div className={styles.color} style={{ backgroundColor: plan.color }}></div>
+            </div>
             <div className={styles.label}>{plan?.name}</div>
           </div>
         ))}

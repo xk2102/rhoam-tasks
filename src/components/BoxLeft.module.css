@@ -81,6 +81,14 @@
   /* MARGIN, PADDING */
   margin-left: 15px;
 }
+.plan > .image > .color {
+  /* SIZE */
+  height: 15px;
+  width: 15px;
+  /* BORDER */
+  /* border: 2px solid; */
+  border-radius: 15px;
+}
 .plan > .label {
   /* BORDER */
   /* border: 2px solid; */

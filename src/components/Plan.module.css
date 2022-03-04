@@ -36,6 +36,14 @@
   justify-content: center;
   align-items: center;
 }
+.plan > .planHeader > .image > .color {
+  /* SIZE */
+  height: 35px;
+  width: 35px;
+  /* BORDER */
+  /* border: 2px solid; */
+  border-radius: 20px;
+}
 .plan > .planHeader > .label {
   /* BORDER */
   /* border: 2px solid; */

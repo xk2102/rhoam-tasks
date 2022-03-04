@@ -28,7 +28,7 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     {
       name: "Daily Household Chores",
       id: "g1f23cgf12",
-      color: "#f9c440",
+      color: "#de3e80",
       tasks: [
         { id: "3k4j5", description: "Put away belongings.", due: "datetime", completed: false },
         { id: "lk2j34", description: "Do the laundry.", due: "datetime", completed: true },

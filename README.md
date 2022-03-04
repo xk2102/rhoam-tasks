@@ -1,3 +1,13 @@
+# RHOAM TASKS
+
+A small TypeScript app to make life easier, for desktop use. \
+A user can make plans and add tasks to them. The app will be continuously updated.
+
+<img src="pics/1.png" />
+<img src="pics/2.png" />
+<img src="pics/3.png" />
+<img src="pics/4.png" />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

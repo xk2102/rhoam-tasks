@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Global } from "../contexts/Global";
 import styles from "./Plan.module.css";
 import { plan } from "../modules/types";
-import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
+import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox, MdDeleteOutline } from "react-icons/md";
 import { BsPlusLg } from "react-icons/bs";
 import { GoKebabVertical } from "react-icons/go";
 import ConfigBox from "./ConfigBox";
@@ -59,7 +59,17 @@ function Plan({ selectedPlan }: PlanProps) {
             <div className={styles.image} onClick={() => _Global!.toggleTaskCompleted(selectedPlan.id, task.id)}>
               {task.completed ? <MdOutlineCheckBox size={25} /> : <MdOutlineCheckBoxOutlineBlank size={25} />}
             </div>
-            <div className={styles.description}>{task.description}</div>
+            {task.completed ? (
+              <>
+                <div className={styles.description} style={{ textDecoration: "2px line-through #f5f5f5" }}>
+                  {task.description}
+                </div>
+                <MdDeleteOutline size={20} style={{ color: "#ff4d4d" }} />
+              </>
+            ) : (
+              <div className={styles.description}>{task.description}</div>
+            )}
+            <div></div>
           </div>
         ))}
       </div>

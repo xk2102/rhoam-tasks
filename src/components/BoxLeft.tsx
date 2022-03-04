@@ -38,18 +38,18 @@ function BoxLeft() {
           </div>
         ))}
 
-        <div className={styles.category}>
+        {/* <div className={styles.category}>
           <div className={styles.image}>🌎</div>
           <div className={styles.label}>CLOUD</div>
-        </div>
-        <div className={styles.plan}>
+        </div> */}
+        {/* <div className={styles.plan}>
           <div className={styles.image}>🌎</div>
           <div className={styles.label}>plan</div>
         </div>
         <div className={styles.plan}>
           <div className={styles.image}>🌎</div>
           <div className={styles.label}>another plan</div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.bottom}>
         <AddPlan />

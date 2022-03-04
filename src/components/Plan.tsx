@@ -57,7 +57,7 @@ function Plan({ selectedPlan }: PlanProps) {
         {selectedPlan.tasks.map((task, index) => (
           <div className={styles.task} key={index}>
             <div className={styles.image} onClick={() => _Global!.toggleTaskCompleted(selectedPlan.id, task.id)}>
-              {task.completed ? <MdOutlineCheckBox /> : <MdOutlineCheckBoxOutlineBlank />}
+              {task.completed ? <MdOutlineCheckBox size={25} /> : <MdOutlineCheckBoxOutlineBlank size={25} />}
             </div>
             <div className={styles.description}>{task.description}</div>
           </div>

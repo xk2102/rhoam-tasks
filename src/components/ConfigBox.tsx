@@ -32,7 +32,7 @@ export default function ConfigBox({ selectedPlan }: ConfigBoxProps) {
       </div>
       <span id={styles.newPlanName}>New name: </span>
       <input placeholder="Plan name.." value={newPlanName} onChange={(event) => setNewPlanName(event.target.value)}></input>
-      <button onClick={() => onClick_handleChangeName(selectedPlan.id, newPlanName)}>CHANGE</button>
+      <button onClick={() => newPlanName !== "" && onClick_handleChangeName(selectedPlan.id, newPlanName)}>CHANGE</button>
     </div>
   );
 }

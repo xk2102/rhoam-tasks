@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rhoam-tasks/static/css/main.9e710d19.css",
+    "main.js": "/rhoam-tasks/static/js/main.280fda8c.js",
+    "static/js/787.0559a80c.chunk.js": "/rhoam-tasks/static/js/787.0559a80c.chunk.js",
+    "index.html": "/rhoam-tasks/index.html",
+    "main.9e710d19.css.map": "/rhoam-tasks/static/css/main.9e710d19.css.map",
+    "main.280fda8c.js.map": "/rhoam-tasks/static/js/main.280fda8c.js.map",
+    "787.0559a80c.chunk.js.map": "/rhoam-tasks/static/js/787.0559a80c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e710d19.css",
+    "static/js/main.280fda8c.js"
+  ]
+}

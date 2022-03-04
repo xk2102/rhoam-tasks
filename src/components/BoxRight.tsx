@@ -2,6 +2,7 @@ import styles from "./BoxRight.module.css";
 import Plan from "./Plan";
 import { useContext } from "react";
 import { Global } from "../contexts/Global";
+import { FaList } from "react-icons/fa";
 // --------------------------------------------------------------
 // --TYPES-------------------------------------------------------
 // --------------------------------------------------------------
@@ -20,7 +21,12 @@ function BoxRight() {
   // --RETURN------------------------------------------------------
   // --------------------------------------------------------------
   if (_Global!.selectedPlan === null) {
-    return <div className={styles.BoxRightEmpty}>Select a plan..!</div>;
+    return (
+      <div className={styles.BoxRightEmpty}>
+        <h1>RHOAM TASKS</h1>
+        <span>Select a plan..!</span>
+      </div>
+    );
   } else {
     return (
       <div className={styles.BoxRight}>

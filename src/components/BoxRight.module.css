@@ -8,6 +8,8 @@
 .BoxRightEmpty {
   /* DISPLAY */
   flex: 3;
+  display: flex;
+  flex-direction: column;
   /* MARGIN, PADDING */
   padding: 20px;
   /* DISPLAY */

@@ -64,12 +64,15 @@ function Plan({ selectedPlan }: PlanProps) {
                 <div className={styles.description} style={{ textDecoration: "2px line-through #f5f5f5" }}>
                   {task.description}
                 </div>
-                <MdDeleteOutline size={20} style={{ color: "#ff4d4d" }} />
               </>
             ) : (
-              <div className={styles.description}>{task.description}</div>
+              <div className={`${styles.description}`}>{task.description}</div>
             )}
-            <div></div>
+            <div className={styles.delete}>
+              {task.completed && (
+                <MdDeleteOutline onClick={() => _Global!.deleteTaskFromAPlan(selectedPlan.id, task.id)} className="animate" size={20} style={{ color: "#ff4d4d", cursor: "pointer" }} />
+              )}
+            </div>
           </div>
         ))}
       </div>

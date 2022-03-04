@@ -15,6 +15,7 @@ type GlobalType = {
   addPlan: (planName: string, planColor: string) => void;
   changePlanColor: (planId: string, planNewColor: string) => void;
   changePlanName: (planId: string, planNewName: string) => void;
+  deleteTaskFromAPlan: (selectedPlanId: string, taskId: string) => void;
 };
 
 export const Global = createContext<GlobalType | null>(null);
@@ -45,6 +46,15 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     _plans.forEach((obj) => {
       if (obj.id === selectedPlanId) {
         obj.tasks.push({ id: uid(), description: taskDescription, due: "datetime", completed: false });
+      }
+    });
+    setPlans([..._plans]);
+  }
+  function deleteTaskFromAPlan(selectedPlanId: string, taskId: string): void {
+    let _plans: plan[] = plans;
+    _plans.forEach((obj) => {
+      if (obj.id === selectedPlanId) {
+        obj.tasks = obj.tasks.filter((task) => task.id !== taskId);
       }
     });
     setPlans([..._plans]);
@@ -91,5 +101,9 @@ export const GlobalProvider = ({ children }: GlobalProviderProps) => {
     setPlans([..._plans]);
   }
 
-  return <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted, addPlan, changePlanColor, changePlanName }}>{children}</Global.Provider>;
+  return (
+    <Global.Provider value={{ plans, setPlans, selectedPlan, setSelectedPlan, addTaskToAPlan, toggleTaskCompleted, addPlan, changePlanColor, changePlanName, deleteTaskFromAPlan }}>
+      {children}
+    </Global.Provider>
+  );
 };
